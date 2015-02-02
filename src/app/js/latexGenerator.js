@@ -12,6 +12,9 @@ var generateLatex = function(expr) {
 			case "Function":
 				latexString += functionToLatex(wrapper);
 				break;
+			case "Mbox":
+				latexString += mboxToLatex(wrapper);
+				break;
 			case "Bracket":
 				latexString += bracketToLatex(wrapper);
 				break;
@@ -195,6 +198,12 @@ var bigOperatorToLatex = function(expr) {
 var functionToLatex = function(expr) {
 	var latexString = '';
 	latexString = '\\' + expr.value;
+	return latexString;
+}
+
+var mboxToLatex = function(expr) {
+	var latexString = '';
+	latexString = '\\mbox{' + expr.value + '}';
 	return latexString;
 }
 
